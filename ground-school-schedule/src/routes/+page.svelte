@@ -41,6 +41,16 @@
         
     ];
 
+    let privateClasses = [];
+    let privateClassDays = [1,3,5];
+    function nextPrivateClasses() {
+        let currentDate = new Date();
+        let startDate = new Date(2025, 9, 12);
+        
+        
+    }
+
+    nextPrivateClasses();
 </script>
 
 <div class="container">
