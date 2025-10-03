@@ -181,7 +181,7 @@
 <div class="container">
     <h1 class="title">GROUND SCHOOL</h1>
     <div class="classGrid">
-        <div class="girdItem">
+        <div class="gridItem">
             <h2>Private Pilot</h2>
             {#each privateClasses as privateClass}
                 <h3>{privateClass.date.toLocaleDateString("en-US",{weekday: "long", month: "long", day: "numeric"})} | {privateClassTimes[privateClass.dayIndex]}</h3>
@@ -196,19 +196,17 @@
         </div>
         <div class="gridItem">
             <h2>Instrument</h2>
-            <div class="blank"></div>
         </div>
         <div class="gridItem">
             <h2>Commercial</h2>
-            <div class="blank"></div>
         </div>
     </div>
 </div>
 
 
 <style>
-    :global(.blank) {
-        width: 300px;
+    :global(.gridItem) {
+        min-width: 400px;
     }
     :global(.spacer) {
         height: 10px;
