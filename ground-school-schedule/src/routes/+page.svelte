@@ -146,16 +146,25 @@
     ];
     function nextPrivateClasses() {
         let currentDate = new Date();
-        let startDate = new Date(2025, 9, 12);
+        let startDate = new Date(2025, 9, 1);
+        console.log("start date: " + startDate);
         let classIndex = 0;
+
+        while (currentDate.getDate() > startDate.getDate()) {
+            if (privateClassDays.includes(startDate.getDay())) {
+                classIndex++;
+                startDate.setDate(startDate.getDate() + 1);
+            }
+        }
         
-        while (privateClasses.length < 150) {
+        while (privateClasses.length < 3) {
             if (privateClassDays.includes(startDate.getDay())) {
                 privateClasses.push({
                     lesson: privateSchedule[classIndex % privateSchedule.length],
                     date: new Date(startDate),
                     dayIndex: startDate.getDay(),
                 });
+                classIndex++;
             }
             console.log(startDate);
             console.log(privateClasses);
@@ -174,7 +183,16 @@
     <div class="classGrid">
         <div class="girdItem">
             <h2>Private Pilot</h2>
-            
+            {#each privateClasses as privateClass}
+                <h3>{privateClass.date.toLocaleDateString("en-US",{weekday: "long", month: "long", day: "numeric"})} | {privateClassTimes[privateClass.dayIndex]}</h3>
+                <h3>{privateClass.lesson.lesson}</h3>
+                <ul>
+                    {#each privateClass.lesson.tasks as task}
+                        <li>{task}</li>
+                    {/each}
+                </ul>
+                <div class="spacer"></div>
+            {/each}
         </div>
         <div class="gridItem">
             <h2>Commercial</h2>
@@ -184,12 +202,25 @@
 
 
 <style>
+    :global(.spacer) {
+        height: 10px;
+    }
+    :global(li) {
+        list-style-type: disc;
+        margin-left: 20px;
+    }
     :global(.classGrid) {
         display: flex;
         justify-content: center;
         align-items: space-between;
     }
-    :global(.gridItem) {
+    :global(h3) {
+        font-weight: bold;
+    }
+    :global(h2) {
+        color: #39488e;
+        font-weight: bold;
+        font-size: 2rem;
     }
     :global(h1) {
         color: #39488e;
