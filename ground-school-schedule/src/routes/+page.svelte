@@ -134,7 +134,16 @@
     */
 
     let privateClasses = [];
-    let privateClassDays = [0,1,2,3,4,5,6,7]; //0 indicates sunday etc
+    let privateClassDays = [0,1,2,3,4,5,6]; //0 indicates sunday etc
+    let privateClassTimes = [
+        "14:00 - 16:00",
+        "12:00 - 14:00",
+        "14:00 - 16:00",
+        "14:00 - 16:00",
+        "14:00 - 16:00",
+        "14:00 - 16:00",
+        "12:00 - 14:00",
+    ];
     function nextPrivateClasses() {
         let currentDate = new Date();
         let startDate = new Date(2025, 9, 12);
@@ -144,7 +153,8 @@
             if (privateClassDays.includes(startDate.getDay())) {
                 privateClasses.push({
                     lesson: privateSchedule[classIndex % privateSchedule.length],
-                    date: new Date(startDate)
+                    date: new Date(startDate),
+                    dayIndex: startDate.getDay(),
                 });
             }
             console.log(startDate);
@@ -153,7 +163,7 @@
         }
 
         console.log(privateClasses);
-
+        
     }
 
     nextPrivateClasses();
@@ -164,6 +174,7 @@
     <div class="classGrid">
         <div class="girdItem">
             <h2>Private Pilot</h2>
+            
         </div>
         <div class="gridItem">
             <h2>Commercial</h2>
