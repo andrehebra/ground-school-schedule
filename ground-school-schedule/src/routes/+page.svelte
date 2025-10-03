@@ -195,13 +195,21 @@
             {/each}
         </div>
         <div class="gridItem">
+            <h2>Instrument</h2>
+            <div class="blank"></div>
+        </div>
+        <div class="gridItem">
             <h2>Commercial</h2>
+            <div class="blank"></div>
         </div>
     </div>
 </div>
 
 
 <style>
+    :global(.blank) {
+        width: 300px;
+    }
     :global(.spacer) {
         height: 10px;
     }
@@ -211,8 +219,8 @@
     }
     :global(.classGrid) {
         display: flex;
-        justify-content: center;
-        align-items: space-between;
+        justify-content: space-between;
+        align-items: flex-start;
     }
     :global(h3) {
         font-weight: bold;
@@ -232,9 +240,18 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100%; /* Full width of the viewport */
+        min-width: 100vw; /* Full width of the viewport */
         height: 100vh; /* Full height of the viewport */
         margin: 0;
         padding: 0;
+        
     }
+    :global(html, body) {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+    }
+    
 </style>
