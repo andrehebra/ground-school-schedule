@@ -124,13 +124,36 @@
         },
     ];
 
+    /* DEFINING ARRAY OF NEXT PILOT CLASSES
+        [
+            {
+                LESSONOBJECT
+                DATE
+            }
+        ]
+    */
+
     let privateClasses = [];
-    let privateClassDays = [1,3,5];
+    let privateClassDays = [0,1,2,3,4,5,6,7]; //0 indicates sunday etc
     function nextPrivateClasses() {
         let currentDate = new Date();
         let startDate = new Date(2025, 9, 12);
+        let classIndex = 0;
         
-        
+        while (privateClasses.length < 150) {
+            if (privateClassDays.includes(startDate.getDay())) {
+                privateClasses.push({
+                    lesson: privateSchedule[classIndex % privateSchedule.length],
+                    date: new Date(startDate)
+                });
+            }
+            console.log(startDate);
+            console.log(privateClasses);
+            startDate.setDate(startDate.getDate() + 1);
+        }
+
+        console.log(privateClasses);
+
     }
 
     nextPrivateClasses();
@@ -138,10 +161,25 @@
 
 <div class="container">
     <h1 class="title">GROUND SCHOOL</h1>
+    <div class="classGrid">
+        <div class="girdItem">
+            <h2>Private Pilot</h2>
+        </div>
+        <div class="gridItem">
+            <h2>Commercial</h2>
+        </div>
+    </div>
 </div>
 
 
 <style>
+    :global(.classGrid) {
+        display: flex;
+        justify-content: center;
+        align-items: space-between;
+    }
+    :global(.gridItem) {
+    }
     :global(h1) {
         color: #39488e;
         font-weight: bold;
