@@ -19,19 +19,19 @@
             tasks: ["Primary Flight Controls", "Secondary Flight Controls"],
         },
         {
-            lesson: "Powerplant",
+            lesson: "Systems - Powerplant",
             tasks: ["Engine", "Oil System", "Engine Failures"],
         },
         {
-            lesson: "Ignition System",
+            lesson: "Systems - Ignition",
             tasks: ["Ignition System Overview", "Magnetos", "Spark Plugs"],
         },
         {
-            lesson: "Fuel System",
+            lesson: "Systems - Fuel",
             tasks: ["Fuel System Overview", "Fuel Injection", "Fuel Types", "Emergency Management"],
         },
         {
-            lesson: "Electrical System",
+            lesson: "Systems - Electrical",
             tasks: ["Electrical System Overview", "Starter", "Alternator", "Emergency Management"],
         },
         {
@@ -179,7 +179,7 @@
 </script>
 
 <div class="container">
-    <h1 class="title">GROUND SCHOOL</h1>
+    <h1 class="title">GROUND SCHOOL SCHEDULE</h1>
     <div class="classGrid">
         <div class="gridItem">
             <h2>Private Pilot</h2>
@@ -206,7 +206,7 @@
 
 <style>
     :global(.gridItem) {
-        min-width: 400px;
+        width: 25vw;
     }
     :global(.spacer) {
         height: 10px;
