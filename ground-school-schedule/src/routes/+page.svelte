@@ -64,7 +64,7 @@
         font-weight: bold;
         font-size: 4rem;
     }
-        :global(.container) {
+    :global(.container) {
         display: flex;
         flex-direction: column;
         justify-content: center;
